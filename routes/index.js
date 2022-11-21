@@ -12,7 +12,6 @@ router.get('/hatchback', function(req, res, next) {
         picture: "images/hatchback.jpg",
         desc: "Приора,которая подойдет всем - и груз загрузить,и поставить музыку,и покататься."
     })
-    res.send("<h1>About hatchback</h1>")
 });
 /* Страница приоры седан */
 router.get('/sedan', function(req, res, next) {
@@ -21,7 +20,6 @@ router.get('/sedan', function(req, res, next) {
         picture: "images/sedan.jpg",
         desc: "Приора,которая самая молодежная. Её тонируют,и выглядит она лучше всех."
     })
-    res.send("<h1>About sedan</h1>")
 });
 
 
@@ -32,6 +30,5 @@ router.get('/universal', function(req, res, next) {
         picture: "images/universal.jpg",
         desc: "Приора для дедушек,либо рабочих - в ней можно возить много груза"
     })
-    res.send("<h1>About universal</h1>")
 });
 module.exports = router;
