@@ -4,9 +4,6 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose = require('mongoose')
-mongoose.connect('mongodb://localhost/priora')
-
-
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -41,7 +38,14 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.render('error', 
+  {
+    picture: "/images/error.png",
+    title: 'Упс, ошибка...',
+    menu:[]
+  });
 });
 
 module.exports = app;
+
+mongoose.connect('mongodb://127.0.0.1:27017/priora')
