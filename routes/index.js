@@ -1,19 +1,21 @@
 var express = require('express');
 var router = express.Router();
-var Cars = require("../models/cars").Cars
+var Car = require("../models/car").Car
+
+
 /* GET home page. */
-/* GET home page. */
-/* GET home page. */
-router.get('/', function(req, res, next) {
-    Cat.find({},{_id:0,title:1,nick:1},function(err,menu){
-        res.render('index', {
-                                title: 'Express',
-                                menu: menu
-                            });
-    })
+router.get('/', function (req, res, next) {
+  Car.find({}, { _id: 0, title: 1, nick: 1 }, function (err, menu) {
+    res.render('index', {
+      title: 'Express',
+      menu: menu
+    });
+  })
+
 });
 
-/* Страница приоры хэтчбек */
+/* ff
+/* Страница приоры хэтчбек 
 router.get('/hatchback', function(req, res, next) {
     res.render('priora', {
         title: "Хэтчбек",
@@ -21,7 +23,7 @@ router.get('/hatchback', function(req, res, next) {
         desc: "Приора,которая подойдет всем - и груз загрузить,и поставить музыку,и покататься."
     })
 });
-/* Страница приоры седан */
+/* Страница приоры седан 
 router.get('/sedan', function(req, res, next) {
     res.render('priora', {
         title: "Седан",
@@ -31,12 +33,13 @@ router.get('/sedan', function(req, res, next) {
 });
 
 
-/* Страница приоры универсал */
+/* Страница приоры универсал 
 router.get('/universal', function(req, res, next) {
     res.render('priora', {
         title: "Универсал",
         picture: "images/universal.jpg",
         desc: "Приора для дедушек,либо рабочих - в ней можно возить много груза"
     })
-});
+}); 
+*/
 module.exports = router;
