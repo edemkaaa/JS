@@ -1,14 +1,15 @@
 var mongoose = require('mongoose')
-mongoose.connect('mongodb://127.0.0.1:27017/test1')
+mongoose.connect('mongodb://127.0.0.1/test1')
+var Priora = require("../models/priora").Priora
 
-var Car = require("./models/car").Car
 
-var car = new car({
-    title: "Седан",
-    nick: "sedan"
+var priora = new Priora({
+title: "Sedan",
+nick: "sedann"
 })
 
-console.log(car)
-car.save(function(err, car, affected){
-console.log(car.title)
+
+console.log(priora)
+priora.save(function(err, priora, affected){
+console.log(priora.title)
 })
