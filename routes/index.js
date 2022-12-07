@@ -6,13 +6,13 @@ var Priora = require("../models/priora").Priora
 /* GET home page. */
 router.get('/', function (req, res, next) {
   Priora.find({}, { _id: 0, title: 1, nick: 1 }, function (err, menu) {
-    req.session.greeting = "Hi!!!!",
-      res.cookie('greeting', 'Hi!!!!').render('index', {
+    req.session.greeting = "hi!!",
+      res.cookie('greeting', 'hi!!').render('index', {
         title: 'Express',
-        menu: menu
+        menu: menu,
+        counter:req.session.counter
       });
   })
-
 });
 
 
