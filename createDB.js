@@ -6,9 +6,9 @@ const client = new MongoClient(uri)
 async function run() {
 try {
 await client.connect();
-var database = client.db("prioradb");
+var database = client.db("priora");
 database.dropDatabase()
-database = client.db("prioradb");
+database = client.db("priora");
 const prioras = database.collection("prioras");
 const result = await prioras.insertMany(data);
 console.log(`${result.insertedCount} documents were inserted`);
