@@ -12,26 +12,16 @@ router.get('/', function(req, res, next) {
 
 
 router.get('/:nick', function(req, res, next) {
-    async.parallel([
-            function(callback){
-                Priora.findOne({nick:req.params.nick}, callback)
-            },
-            function(callback){
-                Priora.find({},{_id:0,title:1,nick:1},callback)
-            }
-        ],
-        function(err,result){
-            if(err) return next(err)
-            var priora = result[0]
-            var prioras = result[1] || []
-            if(!priora) return next(new Error("нема приоры"))
-            res.render('priora', {
-                title: priora.title,
-                picture: priora.avatar,
-                desc: priora.desc,
-                menu: prioras
-            });
+    Priora.findOne({nick:req.params.nick}, function(err,priora){
+        if(err) return next(err)
+        if(!priora) return next(new Error("Нет такой тачки"))
+        res.render('priora', {
+            title: priora.title,
+            picture: priora.avatar,
+            desc: priora.desc
         })
-  })
+    })
+})
+
   
   module.exports = router
