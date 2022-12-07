@@ -7,7 +7,7 @@ var mongoose = require('mongoose')
 mongoose.connect('mongodb://127.0.0.1:27017/priora')
 var prioras = require('./routes/prioras');
 var session = require("express-session")
-
+var Priora = require("./models/priora").Priora
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -34,6 +34,17 @@ app.use(session({
     store: MongoStore.create({mongoUrl: 'mongodb://localhost/priora'})	
 }))
 
+app.use(function(req,res,next){
+    res.locals.nav = []
+
+    Priora.find(null,{_id:0,title:1,nick:1},function(err,result){
+        if(err) throw err
+        res.locals.nav = result
+        next()
+    })
+})
+
+app.use(require("./middleware/createMenu.js"))
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
@@ -56,7 +67,6 @@ app.use(function(err, req, res, next) {
   {
     picture: "../images/error.png",
     title: 'ошибка',
-    menu:[]
   });
 });
 

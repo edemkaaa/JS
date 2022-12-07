@@ -22,13 +22,14 @@
                     <a class="nav-link" href="/">Главная</a>
                 </li>
             </ul>
-            <% menu.forEach(function(priora){ %>
+            <% if(typeof nav=='object' && nav){ nav.forEach(function(priora){ %>
                 <li class="nav-item">
                     <a class="nav-link" href="/prioras/<%=priora.nick%>">
                         <%=priora.title%>
                     </a>
                 </li>
-                <% }) %>
+                <% })} %>
+
                     <ul class="navbar-nav navbar-right">
                         <li>
                             <a class="nav-link" href="/logreg">Log In</a>
