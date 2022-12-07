@@ -1,19 +1,8 @@
-<head>
-
-  <title>
+<% layout('layout/page.ejs') %>
+  <h1>
     <%= title %>
-  </title>
-  <link rel='stylesheet' href='/stylesheets/style.css' />
-</head>
-
-<body>
-  <% layout('./layout/page.ejs') %>
-    <h1>
-      <%= title %>
-    </h1>
-    <img src="<%= picture %>" alt="" />
-    <h2>A few words about this priora: <%=desc%>
-    </h2>
-</body>
-
-</html>
+  </h1>
+  <p>Welcome to <%= title %>
+  </p>
+  <p>Счетчик: <%= counter %>
+  </p>
