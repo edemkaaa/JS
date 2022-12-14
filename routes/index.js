@@ -4,26 +4,22 @@ var Priora = require("../models/priora").Priora
 
 
 /* GET home page. */
-router.get('/', function (req, res, next) {
-  Priora.find({}, { _id: 0, title: 1, nick: 1 }, function (err) {
-    req.session.greeting = "hi!!",
-      res.cookie('greeting', 'hi!!').render('index', {
-        title: 'Express',
-        counter:req.session.counter
-      });
-  })
-});
-
-
-/* GET home page. 
 router.get('/', function(req, res, next) {
-    Priora.find({},{_id:0,title:1,nick:1},function(err,menu){
-        res.render('index', {
-                                title: 'Express',
-                                menu: menu
-                            });
-    })
+  Priora.find({}, {_id: 0, title: 1, nick: 1}, function(err, menu) {
+    req.session.greeting = "Hi!!!"
+    res.render('index', {
+        title: "Priora",
+        counter: req.session.counter
+  });
+})
 });
-*/
+
+
+/* GET login/registration page. */
+router.get('/logreg', function(req, res, next) {
+  res.render('logreg',{title: 'Вход'});
+  });
+  
+
 
 module.exports = router;
