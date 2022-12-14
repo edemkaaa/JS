@@ -9,8 +9,6 @@ router.get('/', function(req, res, next) {
 });
 
 /* Страница машин */
-
-
 router.get('/:nick', function(req, res, next) {
     Priora.findOne({nick:req.params.nick}, function(err,priora){
         if(err) return next(err)
