@@ -16,8 +16,10 @@ router.get('/', function(req, res, next) {
 
 /* GET login/registration page. */
 router.get('/logreg', function(req, res, next) {
-  res.render('logreg',{title: 'Вход'});
+  res.render('logreg',{title: 'Вход', error:null});
   });
+module.exports = router;
+
 
 
 /* POST login/registration page. */
