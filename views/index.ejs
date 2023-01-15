@@ -1,29 +1,14 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-  <title>
-    <%= title %>
-  </title>
-  <link rel='stylesheet' href='/stylesheets/style.css' />
-</head>
-
-<body>
-  <% layout('./layout/page.ejs') %>
-
-    <h1>
-      <%= title %>
+<% layout('/layout/page.ejs') %>
+  <% if(user.length> 0) {%>
+    <h1>Хай <%= user[0].username %>
     </h1>
-    <h1>Welcome to <%= title %>
-    </h1>
-    <p>Счетчик: <%= counter %>
-    </p>
-    <% if(user) {%>
-      // Случай залогиненного пользователя
-      <% }else{ %>
-        // Случай не залогиненного пользователя
-        <% } %>
+    <% } else { %>
+      <h1>Зарегистрируйтесь, чтобы видеть все страницы сайта</h1>
+      <% } %>
 
-</body>
-
-</html>
+        <h1>
+          <%= title %>
+        </h1>
+        <p>Добро пожаловать в автосалон </p>
+        <p>Счетчик: <%= counter %>
+        </p>
